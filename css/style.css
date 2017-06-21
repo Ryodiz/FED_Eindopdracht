@@ -1,0 +1,124 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: Verdana, sans-serif;
+    color: white;
+}
+
+body {
+    background-image: url('https://umad.com/img/2016/11/mars-planet-wallpaper-background-15992-16502-hd-wallpapers.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+
+#container {
+    margin: 0 auto;
+    width: 1000px;
+    }
+
+#container > div {
+    float: left;
+    overflow: auto;
+}
+
+#rovers {
+    background-color: darkgrey;
+    border: white 10px;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#rovers {
+    background: rgba(0, 19, 175, 0.3);
+
+    /* outer shadows  (note the rgba is red, green, blue, alpha) */
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    /* rounded corners */
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+
+}
+
+.rover {
+    width: 33%;
+    /*height: 250px;*/
+    margin: 20px auto 0;
+    float: left;
+    overflow: auto;
+    text-align: center;
+    border: 10px black;
+}
+
+.rover img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.rover p {
+    padding-left: 10px;
+    text-align: left;
+}
+
+.rover:hover{
+    background: rgb(0, 7, 87);
+}
+
+#rovers a {
+    display: block;
+    color: white;
+}
+
+#content {
+    margin-top: 10px;
+    width: 100%;
+    background: rgba(0, 19, 175, 0.3);
+    /* outer shadows  (note the rgba is red, green, blue, alpha) */
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    /* rounded corners */
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+#rover-photos {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#rover-photos .start-message {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#rover-photos .photo {
+    width: 33%;
+    height: 250px;
+    margin: 20px 0;
+    float: left;
+    overflow: auto;
+    text-align: center;
+}
+
+#rover-photos .photo img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#rover-photos .photo:hover {
+    background: rgb(0, 7, 87);
+}
+
+
+.error {
+    color: #FF0000;
+    display: block;
+    margin-top: 10px;
+}

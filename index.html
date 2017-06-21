@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Mars Photos</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div id="container">
+
+    <div id="rovers">
+        <span class="start-message">Loading rovers.....</span>
+
+        <script id="template-rovers" type="text/template">
+            <% _.each(rovers, function(rover){ %>
+            <div class="rover">
+                <img src="img\rover.jpg">
+                <h3><a href="#" data-rover="<%= rover.get('name') %>" data-sol="<%= rover.get('max_sol') %>"><%= rover.get('name') %></a></h3>
+                <div>
+                    <div>
+                        <p>
+                            launch date: <%= rover.get('launch_date') %>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            landing date: <%= rover.get('landing_date') %>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Sols(days) active: <%= rover.get('max_sol') %>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Photos: <%= rover.get('total_photos') %>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Camera's: <%= rover.get('cameras').length %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </script>
+        <script id="template-roverError" type="text/template">
+            <span class="error"><%= message %></span>
+        </script>
+    </div>
+
+
+<div id="content">
+    <div id="rover-cameras">
+        <script id="template-cameraError" type="text/template">
+            <span class="error"><%= message %></span>
+        </script>
+
+        <script id="template-cameras" type="text/template">
+            <h3>Filter current photos on cameras</h3>
+            <select id="camera" name="camera" data-camera>
+                <option selected value="all">All</option>
+                <% _.each(cameras, function(camera){  %>
+                <option value="<%= camera.get('name') %>"><%= camera.get('name') %></option>
+                <% }); %>
+            </select>
+
+
+        </script>
+    </div>
+    <div id="rover-photos">
+        <span class="start-message"><h2>Choose a rover above!</h2></span>
+
+
+        <script id="template-photoError" type="text/template">
+            <span class="error"><%= message %></span>
+        </script>
+        <script id="template-photos" type="text/template">
+            <% _.each(photos, function(photo){;%>
+            <div class="photo">
+                <img src="<%= photo.get('img_src') %>">
+            </div>
+            <% }); %>
+        </script>
+    </div>
+</div>
+
+</div>
+<script src="dist/bundle.js" type="text/javascript"></script>
+</body>
+</html>
