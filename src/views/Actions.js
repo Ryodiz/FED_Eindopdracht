@@ -67,7 +67,6 @@ const Actions = View.extend({
         let target = e.currentTarget;
         let url = 'photos/' + target.dataset['rover'] + '/' + target.dataset['sol'];
 
-        console.log('clicked' + url);
         //Use trigger & replace to update URL and make the router listen to change
         this.router.navigate(url, {trigger: true, replace: true});
     }

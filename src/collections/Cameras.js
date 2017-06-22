@@ -25,7 +25,6 @@ let Cameras = Collection.extend({
      */
     parse: function(response, options){
 
-        console.log(response);
         let CamerasUsedOnSol = response.photo_manifest.photos.filter((obj) => obj.sol == this.sol);
         let cameraList = [];
 

@@ -14,7 +14,6 @@ let Photos = Collection.extend({
     url: 'https://stud.hosted.hr.nl/0843154/Jaar3/FED/proxy.php?url=' + encodeURIComponent('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt'),
 
     parse: function(response, options){
-        console.log(response);
         return response.photos;
     },
 
@@ -26,7 +25,6 @@ let Photos = Collection.extend({
      * @param camera
      */
     loadPhotosFromRover(rover, sol, camera = null){
-        console.log(rover + sol + camera);
         if(camera == null){
             this.url = 'https://stud.hosted.hr.nl/0843154/Jaar3/FED/proxy.php?url=' + encodeURIComponent('https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?sol=' + sol + '&page=0&api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt');
         }
