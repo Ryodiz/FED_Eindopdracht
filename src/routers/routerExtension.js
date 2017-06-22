@@ -23,6 +23,7 @@ const routerExtension = Router.extend({
      */
     PhotoAction: function (rover, sol, camera = null)
     {
+        console.log('photoaction triggered');
         App.events.trigger('newSearch', {
             rover: rover,
             sol: sol,

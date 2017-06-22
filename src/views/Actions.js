@@ -22,6 +22,8 @@ const Actions = View.extend({
 
     initialize: function ()
     {
+        this.selectUrl = '';
+        this.selectUsed = false;
         //Initialize the router to activate navigation
         this.router = new Router();
     },
@@ -50,6 +52,7 @@ const Actions = View.extend({
 
         //Use trigger & replace to update URL and make the router listen to change
         this.router.navigate(url, {trigger: true, replace: true});
+        this.router.trigger();
     },
 
     /**
@@ -64,6 +67,7 @@ const Actions = View.extend({
         let target = e.currentTarget;
         let url = 'photos/' + target.dataset['rover'] + '/' + target.dataset['sol'];
 
+        console.log('clicked' + url);
         //Use trigger & replace to update URL and make the router listen to change
         this.router.navigate(url, {trigger: true, replace: true});
     }

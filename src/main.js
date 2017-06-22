@@ -1,6 +1,3 @@
-/**
- * Created by Roy on 6/9/2017.
- */
 import _ from 'underscore';
 import {Events} from 'backbone';
 import Photos from './collections/Photos';
@@ -41,7 +38,7 @@ import Rovers from "./collections/Rovers";
         new RoverPhotos({el: "#rover-photos", collection: photosCollection});
 
         //History
-        Backbone.history.start({pushState: false, replaceState: false, root: 'eindopdracht/'});
+        Backbone.history.start({pushState: false, replaceState: true, root: '/0843154/Jaar3/FED/eindopdracht/'});
 
 
     };

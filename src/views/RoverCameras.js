@@ -36,8 +36,7 @@ const RoverCameras = View.extend({
             success: (collection) => this.loadCamerasSuccessHandler(collection),
             error: (collection, response) => this.loadCamerasErrorHandler(collection, response),
             data: {
-                sol: data.sol,
-                page: 0
+
             }
         });
     },

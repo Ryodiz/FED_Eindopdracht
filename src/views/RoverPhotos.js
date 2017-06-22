@@ -31,18 +31,17 @@ const RoverPhotos = View.extend({
     loadPhotos: function (data) {
         //Check if camera data has been included, if so add to search parameter
         if (data.camera != null) {
-            this.collection.loadPhotosFromRover(data.rover, data.camera);
+            this.collection.loadPhotosFromRover(data.rover, data.sol, data.camera);
         }
         else{
-            this.collection.loadPhotosFromRover(data.rover);
+            this.collection.loadPhotosFromRover(data.rover, data.sol);
         }
 
         this.collection.fetch({
             success: (collection) => this.loadPhotosSuccessHandler(collection),
             error: (collection, response) => this.loadPhotosErrorHandler(collection, response),
             data: {
-                sol: data.sol,
-                page: 0
+
             }
         })
     },

@@ -5,7 +5,7 @@ import {Collection} from 'backbone';
 import Camera from '../models/Camera';
 
 /**
- * Collection for the cameras endpoint
+ * Collection for the cameras endpoint through a proxy
  *
  * @constructor
  */
@@ -14,7 +14,7 @@ let Cameras = Collection.extend({
     url: '',
 
     /**
-     * Parsing of the api return.
+     * Parsing of the api return through a proxy.
      * Filters photo collections by sol.
      * Adds used camera's on that sol to the camera list.
      * Returns array with camera objects.
@@ -25,6 +25,7 @@ let Cameras = Collection.extend({
      */
     parse: function(response, options){
 
+        console.log(response);
         let CamerasUsedOnSol = response.photo_manifest.photos.filter((obj) => obj.sol == this.sol);
         let cameraList = [];
 
@@ -44,7 +45,7 @@ let Cameras = Collection.extend({
      * @param sol
      */
     loadCamerasFromRover(rover, sol){
-        this.url = 'https://api.nasa.gov/mars-photos/api/v1/manifests/' + rover + '/?api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt';
+        this.url = 'https://stud.hosted.hr.nl/0843154/Jaar3/FED/proxy.php?url=' + encodeURIComponent('https://api.nasa.gov/mars-photos/api/v1/manifests/' + rover + '/?api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt');
         this.sol = sol;
     }
 });

@@ -11,24 +11,27 @@ import Photo from '../models/Photo';
  */
 let Photos = Collection.extend({
     model: Photo,
-    url: 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt',
+    url: 'https://stud.hosted.hr.nl/0843154/Jaar3/FED/proxy.php?url=' + encodeURIComponent('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt'),
 
     parse: function(response, options){
+        console.log(response);
         return response.photos;
     },
 
     /**
-     * Method for setting up the correct Url before fetching the collection.
+     * Method for setting up the correct Url before fetching the collection using a proxy.
      *
      * @param rover
+     * @param sol
      * @param camera
      */
-    loadPhotosFromRover(rover, camera = null){
+    loadPhotosFromRover(rover, sol, camera = null){
+        console.log(rover + sol + camera);
         if(camera == null){
-            this.url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt';
+            this.url = 'https://stud.hosted.hr.nl/0843154/Jaar3/FED/proxy.php?url=' + encodeURIComponent('https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?sol=' + sol + '&page=0&api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt');
         }
         else {
-            this.url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?camera=' + camera + '&api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt';
+            this.url = 'https://stud.hosted.hr.nl/0843154/Jaar3/FED/proxy.php?url=' + encodeURIComponent('https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?sol=' + sol + '&camera=' + camera + '&page=0&api_key=W1c7yjDXpGaAEwM23FXHxgDmvEvKrKdTEAdGVzXt');
         }
     }
 });
