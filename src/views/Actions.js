@@ -52,7 +52,7 @@ const Actions = View.extend({
 
         //Use trigger & replace to update URL and make the router listen to change
         this.router.navigate(url, {trigger: true, replace: true});
-        this.router.trigger();
+
     },
 
     /**
@@ -68,6 +68,7 @@ const Actions = View.extend({
         let url = 'photos/' + target.dataset['rover'] + '/' + target.dataset['sol'];
 
         //Use trigger & replace to update URL and make the router listen to change
+        this.selectUsed = false;
         this.router.navigate(url, {trigger: true, replace: true});
     }
 });
